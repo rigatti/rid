@@ -1,0 +1,94 @@
+/**************************************************************/
+/***************     BRANDING HEADER TOP LEFT     *************/
+/**************************************************************/
+header.header-default .header-main {
+    backgroun-image: url(/sites/default/files/images/Banner-top-photo-fond_light.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+}
+div.branding {
+    background: rgba(217, 234, 51, 0.4);
+    background-size: auto;
+    width: 160px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+.site-branding-logo img {
+	max-height: 130px;
+	max-width: 130px;
+    min-height: 130px;
+    min-width: 130px;
+}
+
+header.header-default .header-main {
+    padding: 15px;
+}
+
+.site-branding__text {
+    background: rgba(29, 13, 3, 0.4);
+    color: white;
+    font-size: 11px;
+    width: 160px;
+    padding: 10px;
+    margin-left: -15px;
+    margin-bottom: -8px;
+    margin-top: 45px;
+}
+
+@media (max-width: 768px) {
+    .site-branding__text {
+        background: none;
+        height: 0px;
+        width: 0px;
+        font-size: 0px;
+        margin:0;
+        padding:0;
+    }
+}
+@media (max-width: 768px) {
+    header.header-default .branding {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 38px;
+    }
+}
+
+/**************************************************************/
+/********************       SNAKE MENU       ******************/
+/**************************************************************/
+.snake-menu-container{
+    width: auto;
+    max-width: 500px;
+    min-width: 150px;
+  }
+  .snake-menu-top {
+    border-left: 2px solid white;
+    padding-top: 10px;
+    margin-top: -15px;
+  }
+  .snake-menu-item {
+    padding: 5px;
+    border: 2px solid white;
+    color:yellow;
+  }
+  .snake-menu-item-1 {
+    background: rgba(146, 220, 252, 0.6);
+  }
+  .snake-menu-item-2 {
+    background: rgba(165, 232, 23, 0.6);
+  }
+  .snake-menu-item-3 {
+    background: rgba(252, 145, 15, 0.6);
+  }
+  .snake-menu-separator{
+    border-left: 2px solid white;
+    padding-top: 10px;
+  }
+  .snake-menu-bottom {
+    padding-top: 15px;
+    border-left: 2px solid white;
+    margin-bottom: -15px;
+    padding-bottom: 10px;
+  }
