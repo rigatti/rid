@@ -1,0 +1,362 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class
+  ]
+%}
+
+<div{{ attributes.addClass(classes)|without('about') }}>
+  <header>
+    <div class="container">
+      <h2 class="title"><span>{{ label }}</span></h2>
+      <h3 class="subtitile"><span>{{content.field_tools_subtitle}}</h3>
+    </div>
+  </header>
+  
+  <div class="full_content_image darkgreen no-bottom-padding" {{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {{ content.field_tools_image }}
+  </div>
+  <div class="full_content">
+    {{ content.body }} 
+
+    {{ content.field_tools_addresses_adaptation }}
+
+    {{ content.field_tools_addresses_collaborat }}
+
+    {{ content.field_tools_addresses_illustrati }}
+
+    {{ content.field_tools_addresses_music }}
+
+    {{ content.field_tools_addresses_realisatio }}
+
+    {{ content.field_tools_addresses_text }}
+
+    {{ content.field_tools_addresses_translatio }}
+
+    {{ content.field_tools_authors }}
+
+    {{ content.field_tools_availibility_at_rid }}
+
+    {{ content.field_tools_collection }}
+
+    {{ content.field_tools_date_edition }}
+
+    {{ content.field_tools_distribution_channel }}
+
+    {{ content.field_tools_editors }}
+
+    {{ content.field_tools_keyword }}
+
+    {{ content.field_tools_link }}
+
+    {{ content.field_tools_location_edition }}
+
+    {{ content.field_tools_price }}
+
+    {{ content.field_tools_public_pro }}
+
+    {{ content.field_tools_public_unpro }}
+
+    {{ content.field_tools_reference_rid }}
+
+    {{ content.field_tools_subsidiant }}
+
+    {{ content.field_tools_subtitle }}
+
+    {{ content.field_tools_theme }}
+
+    {{ content.field_tools_type_approach }}
+
+    {{ content.field_tools_review }} 
+
+    {% if node.field_tools_s_p_affiche_actif.value %}
+      <p>
+        <h4>SUPPORT AFFICHE</h4>
+        {{ content.field_tools_s_p_affiche_format }}
+
+        {{ content.field_tools_s_p_affiche_nbr }}
+
+        {{ content.field_tools_s_p_a_dimension }}
+
+        {{ content.field_tools_s_p_affiche_length }}
+
+        {{ content.field_tools_s_p_affiche_width }}
+
+        {{ content.field_tools_s_p_affiche_info }}
+
+        {{ content.field_tools_s_p_affiche_url }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_p_article_actif.value %}
+      <p>
+        <h4>SUPPORT ARTICLE</h4>
+        {{ content.field_tools_s_p_article_page_nbr }}
+
+        {{ content.field_tools_s_p_article_issn }}
+
+        {{ content.field_tools_s_p_art_dimension }}
+
+        {{ content.field_tools_s_p_article_width }}
+
+        {{ content.field_tools_s_p_article_length }}
+
+        {{ content.field_tools_s_p_article_url }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_p_brochure_actif.value %}
+      <p>
+        <h4>SUPPORT BROCHURE</h4>
+        {{ content.field_tools_s_p_brochure_format }}
+
+        {{ content.field_tools_s_p_broch_isbn }}
+
+        {{ content.field_tools_s_p_bro_nbr_page }}
+
+        {{ content.field_tools_s_p_bro_nbr_vol }}
+
+        {{ content.field_tools_s_p_broch_dimension }}
+
+        {{ content.field_tools_s_p_broch_height }}
+
+        {{ content.field_tools_s_p_broch_length }}
+
+        {{ content.field_tools_s_p_broch_width }}
+
+        {{ content.field_tools_s_p_broch_info }}
+
+        {{ content.field_tools_s_p_broch_url }}
+
+      </p>
+     {% endif %}
+
+
+    {% if node.field_tools_s_p_classeur_actif.value %}
+      <p>
+        <h4>SUPPORT CLASSEUR</h4>
+        {{ content.field_tools_s_p_class_format }}
+
+        {{ content.field_tools_s_p_class_nbr_page }}
+
+        {{ content.field_tools_s_p_class_nbr_vol }}
+
+        {{ content.field_tools_s_p_class_dimension }}
+
+        {{ content.field_tools_s_p_class_height }}
+
+        {{ content.field_tools_s_p_class_length }}
+
+        {{ content.field_tools_s_p_class_width }}
+
+        {{ content.field_tools_s_p_class_isbn }}
+
+        {{ content.field_tools_s_p_class_url }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_p_livre_actif.value %}
+      <p>
+        <h4>SUPPORT LIVRE</h4>
+      {{ content.field_tools_s_p_livre_format }}
+
+      {{ content.field_tools_s_p_livre_page_nbr }}
+
+      {{ content.field_tools_s_p_livre_volume_nbr }}
+
+      {{ content.field_tools_s_p_livre_dimension }}
+
+      {{ content.field_tools_s_p_livre_width }}
+
+      {{ content.field_tools_s_p_livre_height }}
+
+      {{ content.field_tools_s_p_livre_length }}
+
+      {{ content.field_tools_s_p_livre_isbn }}
+
+      {{ content.field_tools_s_p_livre_url }}
+ 
+    {% endif %}
+
+    {% if node.field_tools_s_p_revue_actif.value %}
+      <p>
+        <h4>SUPPORT REVUE</h4>
+        {{ content.field_tools_s_p_revue_periodicit }}
+
+        {{ content.field_tools_s_p_revue_page_nbr }}
+
+        {{ content.field_tools_s_p_revue_dimension }}
+
+        {{ content.field_tools_s_p_revue_width }}
+
+        {{ content.field_tools_s_p_revue_length }}
+
+        {{ content.field_tools_s_p_revue_height }}
+
+        {{ content.field_tools_s_p_revue_issn }}
+
+        {{ content.field_tools_s_p_revue_url }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_d_boite_actif.value %}
+      <p>
+        <h4>SUPPORT BOITE</h4>
+        {{ content.field_tools_s_d_boite_kind }}
+
+        {{ content.field_tools_s_d_boite_length }}
+
+        {{ content.field_tools_s_d_boite_width }}
+
+        {{ content.field_tools_s_d_boite_height }}
+
+        {{ content.field_tools_s_d_boite_weight }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_d_malle_actif.value %}
+      <p>
+        <h4>SUPPORT MALLE</h4>
+        {{ content.field_tools_s_d_malle_kind }}
+
+        {{ content.field_tools_s_d_malle_height }}
+
+        {{ content.field_tools_s_d_malle_width }}
+
+        {{ content.field_tools_s_d_malle_length }}
+
+        {{ content.field_tools_s_d_malle_weight }}
+      </p>
+    {% endif %}
+
+    {% if node.content.field_tools_s_d_maquette_actif.value %}
+      <p>
+        <h4>SUPPORT MAQUETTE</h4>
+        {{ content.field_tools_s_d_maquette_kind }}
+
+        {{ content.field_tools_s_d_maquette_height }}
+
+        {{ content.field_tools_s_d_maquette_lenght }}
+
+        {{ tent.field_tools_s_d_maquette_width }}
+
+        {{ content.field_tools_s_d_maquette_weight }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_d_spect_actif.value %}
+      <!-- pas de detail pour spectacle -->
+    {% endif %}
+
+    {% if node.field_tools_s_i_cd_actif.value %}
+      <p>
+        <h4>SUPPORT CD</h4>
+        {{ content.field_tools_s_i_cd_nbr }}
+
+        {{ content.field_tools_s_i_cd_os }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_i_disquette_actif.value %}
+      <p>
+        <h4>SUPPORT DISQUETTE</h4>
+        {{ content.field_tools_s_i_disquette_nbr }}
+
+        {{ content.field_tools_s_i_disquette_os }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_i_website_actif.value %}
+      <p>
+        <h4>SUPPORT WEBSITE</h4>
+        {{ content.field_tools_s_i_website_url }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_i_appl_actif.value %}
+      <p>
+        <h4>SUPPORT APPLICATION</h4>
+        {{ content.field_tools_s_i_appl_url }}
+      </p>
+    {% endif %}
+
+
+  {% if node.field_tools_s_v_cassette_actif.value %}
+     <p>
+        <h4>SUPPORT K7</h4>
+        {{ content.field_tools_s_v_k7_nbr }}
+
+        {{ content.field_tools_s_v_k7_track_nbr }}
+
+        {{ content.field_tools_s_v_k7_duration }}
+      </p>
+  {% endif %}
+
+  {% if node.field_tools_s_v_k7video_actif.value %}
+    <p>
+      <h4>SUPPORT K7VIDEO</h4>
+      {{ content.field_tools_s_v_k7video_format }}
+
+      {{ content.field_tools_s_v_k7video_duration }}
+
+      {{ content.field_tools_s_v_k7video_nbr }}
+    </p>
+  {% endif %}
+
+
+    {% if node.field_tools_s_v_cdaudio_actif.value %}
+      <p>
+        <h4>SUPPORT CD AUDIO</h4>
+        {{ content.field_tools_s_v_cdaudio_duration }}
+
+        {{ content.field_tools_s_v_cdaudio_track_nb }}
+
+        {{ content.field_tools_s_v_cdaudio_nbr }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_v_diapo_actif.value %}
+      <p>
+        <h4>SUPPORT DIAPO</h4>
+        {{ content.field_tools_s_v_diapo_nbr }}
+      </p>
+ 
+    {% endif %}
+
+    {% if node.field_tools_s_v_dvd_actif.value %} 
+      <p>
+        <h4>SUPPORT DVD</h4>
+
+        {{ content.field_tools_s_v_dvd_duration }}
+
+        {{ content.field_tools_s_v_dvd_nbr }}
+
+        {{ content.field_tools_s_v_dvd_region }}
+      </p>
+    {% endif %}
+
+    {% if node.field_tools_s_v_radio_actif.value %}
+      <p>
+        <h4>SUPPORT RADIO</h4>
+        {{ content.field_tools_s_v_radio_channel }}
+
+        {{ content.field_tools_s_v_radio_date }}
+      </p>
+    {% endif %}
+
+    {% if node.content.field_tools_s_v_tv.value %}
+      <p>
+        <h4>SUPPORT TV</h4>
+        {{ content.field_tools_s_v_tv_channel }}
+
+        {{ content.field_tools_s_v_tv_date }}
+      </p>
+    {% endif %}
+
+
+  </div>
+</div>

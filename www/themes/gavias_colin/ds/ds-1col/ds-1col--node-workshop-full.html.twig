@@ -1,0 +1,121 @@
+{#
+/**
+ * @file
+ * Display Suite 1 column template.
+ *
+ * Available variables:
+ * - ds_content_wrapper: wrapper around content
+ * - attributes: content region attributes
+ * - ds_content: content region
+ */
+#}
+{% set page_values = ds_content.node_title['#object'].fields %}
+
+<{{ ds_content_wrapper }}{{ attributes.addClass('ds-1col', 'clearfix') }}>
+<style>
+    div.full_content_activity_image {
+        border-width: 3px;
+        border-style: solid;
+        border-color: #8EC44D ;
+        width: 30%;
+        float: left;
+        text-align: left;
+        padding: 0 10px 10px 10px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        box-shadow: lightgrey 3px 7px 3px 0px;
+        margin-right: 35px;
+        margin-bottom: 8px;
+    }
+
+    div.full_content_activity_image img {
+        margin-top: 10px;
+    }
+
+    div.full_content_activity_content {
+        vertical-align: top;
+        margin-left:20px;
+    }
+</style>
+    {{ title_suffix.contextual_links }}
+
+    <div class="full_content_activity_title">
+        <h2>
+        {{ page_values.title.value }}
+        </h2>
+        <p><b>
+            {{ page_values.field_workshop_subtitle.value }}
+        </b></p>
+    </div>
+
+
+    <div class="full_content_activity_image">
+        <img width="100%" height="100%" src="{{  file_url(ds_content.node_title['#object'].field_workshop_image.0.entity.uri.value) }}" alt="{{ ds_content.node_title['#object'].field_wodkshop_image.0.alt }}">
+        <p class="detail">
+            start date : <nobr>{{page_values.field_workshop_dates.0.value}}</nobr><br>
+            end date : <nobr>{{page_values.field_workshop_dates.1.value}}</nobr><br>
+
+            {% if page_values.field_workshop_theme %}
+                theme : <ul>
+                            {% for item in page_values.field_workshop_theme %}
+                                {% set tid = item.value.target_id %}
+                                {% if tid %}
+                                    <li>
+                                        {{ drupal_field('name', 'taxonomy_term', tid) }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+            {% endif %}
+
+            
+            {% if page_values.field_workshop_province %}
+                province : <ul>
+                            {% for item in page_values.field_workshop_province %}
+                                {% set tid = item.value.target_id %}
+                                {% if tid %}
+                                    <li>
+                                        {{ drupal_field('name', 'taxonomy_term', tid) }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+            {% endif %}
+
+            
+            {% if page_values.field_workshop_public_pro %}
+                public pro : <ul>
+                            {% for item in page_values.field_workshop_public_pro %}
+                                {% set tid = item.value.target_id %}
+                                {% if tid %}
+                                    <li>
+                                        {{ drupal_field('name', 'taxonomy_term', tid) }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+            {% endif %}
+
+            
+            {% if page_values.field_workshop_public_unpro %}
+                public non pro : <ul>
+                            {% for item in page_values.field_workshop_public_unpro %}
+                                {% set tid = item.value.target_id %}
+                                {% if tid %}
+                                    <li>
+                                        {{ drupal_field('name', 'taxonomy_term', tid) }}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+            {% endif %}
+
+
+        </p>
+    </div>
+
+    <div class="full_content_activity_content" >
+        {{ page_values.body.value|raw }}
+    </div>
+
+</{{ ds_content_wrapper }}>

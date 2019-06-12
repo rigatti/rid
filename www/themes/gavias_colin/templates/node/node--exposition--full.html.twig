@@ -1,0 +1,25 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class
+  ]
+%}
+
+<div{{ attributes.addClass(classes)|without('about') }}>
+  <header>
+    <div class="container">
+      <h2 class="title"><span>{{ label }}</span></h2>
+    </div>
+  </header>
+  
+  <div class="full_content_image blue" {{ content_attributes.addClass('node__content', 'clearfix') }}>
+      {{ content|without('body')  }}
+  </div>
+  <div class="full_content">
+    {{ content.body }}
+  </div>
+</div>

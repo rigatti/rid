@@ -1,0 +1,28 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+  
+%}
+
+<div class="gsc-image-content  skin-v2 blue">
+    <div class="info_area_light blue">
+      {{ content.field_news_date_publication }}
+    </div>
+    <div class="image">
+      {{ content.field_news_image }}
+    </div>
+    <div class="box-content">
+      <h4 class="title">
+        <a href="{{ url }}">{{ label }}</a>
+      </h4>
+      <div class="read-more"><a class="btn-inline blue" href="{{ url }}">Read more</a></div>
+    </div> 
+</div>

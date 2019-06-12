@@ -1,0 +1,25 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+  
+%}
+
+<div class="gsc-image-content  skin-v2">
+    <div class="image"><a href="#">
+    <img src="{{  file_url(node.field_address_image.0.entity.uri.value) }}" alt="{{ node.field_address_image.0.alt }}"></a></div>
+    <div class="box-content">
+                            <h4 class="title">
+            <a href="#">                           {{ node.field_address_sub_title.value }}                        </a>  
+          </h4>
+                        <div class="desc"><p>{{ node.body.summary }}</p></div>
+                            <div class="read-more"><a class="btn-inline" href="#">Read more</a></div>
+                      </div> 
+</div>
