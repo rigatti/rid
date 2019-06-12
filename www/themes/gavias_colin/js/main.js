@@ -512,6 +512,12 @@
         $(this).parents('.gsc-links').addClass('hidden-menu');
       }
     })
+
+      $('.main-menu ul.gva_menu li a').each(function(){
+         if(!$(this).attr('href')){
+            $(this).removeAttr('href');
+         }
+      })
   });
 
   $(window).load(function(){

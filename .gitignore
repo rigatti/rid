@@ -8,6 +8,8 @@ www/sites/*/files
 www/sites/*/private
 www/sites/*/translations
 
+backup_migrate/
+
 # Ignore default text files
 www/robots.txt
 /CHANGELOG.txt
